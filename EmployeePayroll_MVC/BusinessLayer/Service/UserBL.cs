@@ -22,9 +22,57 @@ namespace BusinessLayer.Service
             {
                 return iuserRL.AddEmployee(empModel);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public IEnumerable<EmployeeModel> GetAllEmployees()
+        {
+            try
+            {
+                return iuserRL.GetAllEmployees();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public EmployeeModel GetEmployeeData(int? id)
+        {
+            try
+            {
+                return iuserRL.GetEmployeeData(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public EmployeeModel UpdateEmployeeDetail(EmployeeModel empModel)
+        {
+            try
+            {
+                return iuserRL.UpdateEmployeeDetail(empModel);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool DeleteEmployeeDetail(int Id)
+        {
+            try
+            {
+                return iuserRL.DeleteEmployeeDetail(Id);
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }
