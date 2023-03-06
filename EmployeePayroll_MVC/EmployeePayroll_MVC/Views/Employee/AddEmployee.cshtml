@@ -13,9 +13,9 @@
         <form asp-action="AddEmployee">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
+            <label asp-for="Id" class="control-label"></label>
+            <input asp-for="Id" class="form-control" />
+            <span asp-validation-for="Id" class="text-danger"></span>
             </div>*@
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -24,17 +24,39 @@
             </div>
             <div class="form-group">
                 <label asp-for="Profile_Image" class="control-label"></label>
-                <input asp-for="Profile_Image" class="form-control" />
+                @*<input asp-for="Profile_Image" class="form-control" />*@
+                <div>
+                    @Html.RadioButtonFor(model => model.Profile_Image, "~/Assets/Ellipse -1.png")
+                    <img class="image" src="~/Assets/Ellipse -1.png"/>
+                    @Html.RadioButtonFor(model => model.Profile_Image, "~/Assets/Ellipse -2.png")
+                    <img class="image" src="~/Assets/Ellipse -2.png"/>
+                    @Html.RadioButtonFor(model => model.Profile_Image, "~/Assets/Ellipse -3.png")
+                    <img class="image" src="~/Assets/Ellipse -3.png" />
+                    @Html.RadioButtonFor(model => model.Profile_Image, "~/Assets/Ellipse -4.png")
+                    <img class="image" src="~/Assets/Ellipse -4.png" />
+                </div>
                 <span asp-validation-for="Profile_Image" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
+                @*<input asp-for="Gender" class="form-control" />*@
+                @Html.RadioButtonFor(model => model.Gender, "Male")
+                Male
+                @Html.RadioButtonFor(model => model.Gender, "Female")
+                Female
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Department" class="control-label"></label>
-                <input asp-for="Department" class="form-control" />
+                @*<input asp-for="Department" class="form-control" />*@
+                <select asp-for="Department" class="form-control">
+                    <option value="">-- Select Department --</option>
+                    <option value="Male">HR</option>
+                    <option value="Female">Sales</option>
+                    <option value="Female">Finance</option>
+                    <option value="Female">Engineer</option>
+                    <option value="Female">Others</option>
+                </select>
                 <span asp-validation-for="Department" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -64,5 +86,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

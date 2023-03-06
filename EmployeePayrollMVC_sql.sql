@@ -16,10 +16,10 @@ create table PayrollDetails
 
 create or alter procedure AddEmployee
 (
-	@Name varchar(max),
-	@Profile_Image varchar(max),
-	@Gender varchar(max),
-	@Department varchar(max),
+	@Name varchar(50),
+	@Profile_Image varchar(255),
+	@Gender varchar(10),
+	@Department varchar(255),
 	@Salary money,
 	@StartDate datetime,
 	@Notes varchar(max)
@@ -39,10 +39,10 @@ End
 create or alter procedure UpdateEmployeeDetails
 (  
 	@Id int,
-	@Name varchar(max),
-	@Profile_Image varchar(max),
-	@Gender varchar(max),
-	@Department varchar(max),
+	@Name varchar(50),
+	@Profile_Image varchar(255),
+	@Gender varchar(10),
+	@Department varchar(255),
 	@Salary money,
 	@StartDate datetime,
 	@Notes varchar(max)       
@@ -72,3 +72,5 @@ Begin
     select *      
     from PayrollDetails where Id=@Id
 End
+
+select * from PayrollDetails
